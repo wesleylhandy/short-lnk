@@ -4,7 +4,21 @@ import { Meteor } from 'meteor/meteor';
 export const Links = new Mongo.Collection('links');
 
 if (Meteor.isServer) {
-	Meteor.publish('links', () => {
-		return Links.find({url: 'facebook.com'});
+	Meteor.publish('links', function() {
+		return Links.find({userId: this.userId});
 	});
 }
+// resource.action
+// links.insert
+Meteor.methods({
+	'links.insert'(url){
+		if (!this.userId) {
+			throw new Meteor.Error('not-authorized');
+		}
+
+		Links.insert({
+			url,
+			userId: this.userId
+		})
+	}
+});
