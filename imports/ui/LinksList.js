@@ -3,7 +3,6 @@ import { Tracker } from 'meteor/tracker';
 import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 
-
 import { Links } from '../api/links';
 import LinksListItem from './LinksListItem';
 
