@@ -8,10 +8,12 @@ import AddLink from './AddLink';
 export default () => {
 	return (
 		<div>
-			<PrivateHeader title='Your Links'/>
-			<LinksListFilters />
-			<AddLink />
-			<LinksList />
+			<PrivateHeader title='Short Links'/>
+			<div className='page-content'>
+				<LinksListFilters />
+				<AddLink />
+				<LinksList />
+			</div>
 		</div>
 	);
 }
